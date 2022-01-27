@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- link to Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!-- link to icons (this is to show the save icon in the time blocks) -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!-- link to custom font-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- link to local css file for custom styling -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+
+    <!-- jumbotron header that displays today's date -->
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    
+    <div class="container">
+
+      <!-- timeblocks go here, made using Bootstrap and the custom css styling given -->
+      <div class="row time-block" id="block-1">
+        <!-- first column has the hours and is 1/12th of the width of the container -->
+        <div class="col-1 hour">9AM</div>
+        <!-- second column has the inputtable text area and is 10/12th of the width -->
+        <textarea class="col-10 description"></textarea>
+        <!-- third column has the save buttons and the imported icons from fontawesome -->
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-2">
+        <div class="col-1 hour">10AM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-3">
+        <div class="col-1 hour">11AM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-4">
+        <div class="col-1 hour">12AM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-5">
+        <div class="col-1 hour">1PM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-6">
+        <div class="col-1 hour">2PM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-7">
+        <div class="col-1 hour">3PM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-8">
+        <div class="col-1 hour">4PM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+      <div class="row time-block" id="block-9">
+        <div class="col-1 hour">5PM</div>
+        <textarea class="col-10 description"></textarea>
+        <button class="col-1 btn saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- local JavaScript is linked last as to not cause interference with jQuery or Moment.js -->
+    <script src="./assets/js/script.js"></script>
+
+  </body>
+</html>

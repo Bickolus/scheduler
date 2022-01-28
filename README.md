@@ -20,4 +20,4 @@ JavaScript and the implementation of Bootstrap, jQuery, and Moment.js.
 > Deployed Site Link: https://bickolus.github.io/scheduler/
 
 ## Scheduler
-![Scheduler Main Page, with some timeblocks different colors](https://github.com/Bickolus/quiz/blob/main/images/scheduler.png?raw=true)
+![Scheduler Main Page, with some timeblocks different colors](https://github.com/Bickolus/quiz/blob/main/images/scheduler.gif?raw=true)

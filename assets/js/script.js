@@ -1,7 +1,8 @@
+// Variable declarations
 let today = moment();
 let currentHr = parseInt(today.format("H"));
 let headerDate = today.format("dddd, MMMM do");
-let saveDate = today.format("DDDMMYYYY");
+let saveDate = today.format("L");
 let timeBlockEl = $(".time-block");
 let timeBlockId = timeBlockEl.attr("id");
 let timeBlockHr = parseInt(timeBlockId.replace("block-",""));
@@ -24,16 +25,32 @@ function timeBlockStyle() {
     });
 }
 
-// Function for saving data in the textrea in each time block
+// Function for saving data in the text area in each time block
 function saveText(event) {
-    let btnParentId = saveBtnEl.parent().attr("id");
-    let textAreaContent = $('#' + btnParentId + " textarea").val()
-    // this sets a unique key for each time block while also saving the contents of the text area
-    localStorage.setItem(saveDate + btnParentId, textAreaContent);
+    // Redefine timeBlockId so that it refers to the time block the save button is in
+    let timeBlockId = $(this).parent().attr("id");
+    let textAreaContent = $('#' + timeBlockId + " textarea").val()
+    // This sets a unique key for each time block while also saving the contents of the text area
+    // Key is unique to that day, meaning that a day later, the area will be empty again
+    localStorage.setItem(saveDate + "-" + timeBlockId, textAreaContent);
 }
 
-// Function for time displayed in the jumbotron
+// Function for loading data in the text area in each time block
+function loadText() {
+    timeBlockEl.each(function () {
+        // Redefine timeBlockId to use "this" so that it refers to each time block in this function properly
+        let timeBlockId = $(this).attr("id");
+        let textArea = $('#' + timeBlockId + " textarea");
+        // Key will change every day because we are using Moment.js. Yesterday's saved data will not show
+        textArea.text(localStorage.getItem(saveDate + "-" + timeBlockId));
+    });
+}
+
+// Display time in the jumbotron
 $("#currentDay").text(headerDate);
 
+// Call functions and event handlers
 timeBlockStyle();
+loadText();
+saveBtnEl.on("click", saveText);
 

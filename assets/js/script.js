@@ -1,11 +1,11 @@
 // Variable declarations
 let today = moment();
 let currentHr = parseInt(today.format("H"));
-let headerDate = today.format("dddd, MMMM do");
+let headerDate = today.format("dddd, MMMM Do");
 let saveDate = today.format("L");
 let timeBlockEl = $(".time-block");
 let timeBlockId = timeBlockEl.attr("id");
-let timeBlockHr = parseInt(timeBlockId.replace("block-",""));
+let timeBlockHr = parseInt(timeBlockId);
 let saveBtnEl = $(".saveBtn");
 
 /* 
@@ -14,13 +14,17 @@ depending on if the time block is before, after, or within the current hour
 */
 function timeBlockStyle() {
     timeBlockEl.each(function () {
-        timeBlockEl.removeClass("past future present");
+        // Use "this" so that it works for each block in the container
+        timeBlockHr = parseInt($(this).attr("id"));
+        // First we remove every class
+        $(this).removeClass("past future present");
+        // Then add the class to each block accordingly
         if (currentHr > timeBlockHr) {
-            timeBlockEl.addClass("past");
+            $(this).addClass("past");
         } else if (currentHr < timeBlockHr) {
-            timeBlockEl.addClass("future");
+            $(this).addClass("future");
         } else {
-            timeBlockEl.addClass("present");
+            $(this).addClass("present");
         }
     });
 }
